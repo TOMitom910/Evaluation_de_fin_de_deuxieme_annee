@@ -1,20 +1,70 @@
-// Evaluation_de_fin_de_deuxieme_annee.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
-//
+#include "SDL.h"
+#include "SDL_ttf.h"
+#include <stdio.h>
+#include "generationPlateau.h"
 
-#include <iostream>
+int main(int argc, char* argv[]) {
 
-int main()
-{
-    std::cout << "Hello World!\n";
+    SDL_Window* window;                    // Declare a pointer
+
+    SDL_Init(SDL_INIT_VIDEO);              // Initialize SDL2
+
+    // Create an application window with the following settings:
+    window = SDL_CreateWindow(
+        "An SDL2 window",                  // window title
+        SDL_WINDOWPOS_UNDEFINED,           // initial x position
+        SDL_WINDOWPOS_UNDEFINED,           // initial y position
+        1920,                               // width, in pixels 
+        1080,                               // height, in pixels
+        SDL_WINDOW_OPENGL                  // flags - see below
+    );
+
+
+    SDL_Renderer* renderer;
+
+    renderer = SDL_CreateRenderer(window, -1, 0);
+
+    SDL_SetRenderDrawColor(renderer, 50, 50, 50, 255);
+
+    SDL_RenderClear(renderer);
+    int x = 100;
+    int y = 100;
+    for (int i = 0; i < 8; i++)
+    {
+        for (int j = 0 + i; j < 8+i; j++)
+        {
+            if ((j % 2 == 0) )
+            {
+                generation_carre_plein(renderer, x, y, 100, 100, 255, 255, 255);
+            }
+            else
+            {
+                generation_carre_plein(renderer, x, y, 100, 100, 0, 0, 0);
+            }
+            x += 100;
+        }
+        x = 100;
+        y += 100;
+
+    }
+
+    generation_carre_vide(renderer, 100, 100, 800, 800, 255, 0, 0);
+
+    ecriture_texte();
+    // Up until now everything was drawn behind the scenes.
+    // This will show the new, red contents of the window.
+    
+    SDL_RenderPresent(renderer);
+
+    // The window is open: could enter program loop here (see SDL_PollEvent())
+ 
+
+    SDL_Delay(3000);  // Pause execution for 3000 milliseconds, for example
+
+    // Close and destroy the window
+    SDL_DestroyWindow(window);
+
+    // Clean up
+    SDL_Quit();
+    return 0;
 }
-
-// Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
-// Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
-
-// Astuces pour bien démarrer : 
-//   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
-//   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
-//   3. Utilisez la fenêtre Sortie pour voir la sortie de la génération et d'autres messages.
-//   4. Utilisez la fenêtre Liste d'erreurs pour voir les erreurs.
-//   5. Accédez à Projet > Ajouter un nouvel élément pour créer des fichiers de code, ou à Projet > Ajouter un élément existant pour ajouter des fichiers de code existants au projet.
-//   6. Pour rouvrir ce projet plus tard, accédez à Fichier > Ouvrir > Projet et sélectionnez le fichier .sln.
