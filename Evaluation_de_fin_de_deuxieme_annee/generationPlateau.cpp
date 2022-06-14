@@ -37,46 +37,59 @@ void generation_carre_vide(SDL_Renderer* renderer, int x, int y, int w, int h, i
 
 
 
-/*void ecriture_texte()
+void ecriture_texte(SDL_Window * window, SDL_Renderer* renderer, int x, int y, const char* texte)
 {
-    SDL_Surface* ecran = NULL, * texte = NULL;
+    SDL_Surface* windowSurface = NULL;
+    windowSurface = SDL_GetWindowSurface(window);
 
-    void SDL_WM_SetCaption(const char* title, const char* icon);
 
-    int SDL_Flip(SDL_Surface * screen);
 
-    SDL_Surface* SDL_SetVideoMode(int width, int height, int bpp, Uint32 flags);
+    /* Charge une police depuis un fichier, avec une taille de point à 50 */
+    TTF_Font* Font = TTF_OpenFont("assets/arial.ttf", 64);
 
-    SDL_Rect position;
-    SDL_Event event;
-    TTF_Font* police = NULL;
-    SDL_Color couleurNoire = { 0, 0, 0 };
-    int continuer = 1;
-    SDL_Init(SDL_INIT_VIDEO);
-    TTF_Init();
-    ecran = SDL_SetVideoMode(640, 480, 32, "SDL_HWSURFACE"  || "SDL_DOUBLEBUF");
-    SDL_WM_SetCaption("Gestion du texte avec SDL_ttf", NULL);
-    //Chargement de la police
-    police = TTF_OpenFont("assets/arial.ttf", 36);
-    //Ecriture du texte dans la SDL_Surface "texte" en mode Blended (optimal)
-    texte = TTF_RenderText_Blended(police, "Salut les Zér0s !", couleurNoire);
-    while (continuer)
+    /* Si la police est nulle, il y a eu une erreur */
+    /*if (!Font)
     {
-        SDL_WaitEvent(&event);
-        switch (event.type)
-        {
-        case SDL_QUIT:
-            continuer = 0;
-            break;
-        }
-        SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 255, 255, 255));
-        position.x = 60;
-        position.y = 370;
-        SDL_BlitSurface(texte, NULL, ecran, &position); //Blit du texte par-dessus 
-        SDL_Flip(ecran);
-    }
-    TTF_CloseFont(police);
+        printf("Erreur de création de la police : %s", TTF_GetError());
+        return 1;
+    }*/
+
+    /* Couleur du texte (ici rouge) */
+    SDL_Color TextColor;
+    TextColor.r = 0;
+    TextColor.g = 0;
+    TextColor.b = 255;
+
+    /* On rend un texte sur une surface SDL, en utilisant notre police et notre couleur */
+    SDL_Surface* TextSurface = TTF_RenderText_Solid(Font, texte, TextColor);
+
+    /* Si la surface est nulle, il y a eu une erreur */
+  /*if (!TextSurface)
+    {
+        printf("Erreur de rendu du texte : %s", TTF_GetError());
+        return 1;
+    }*/
+
+
+    /* On peut maintenant blitter notre surface comme n'importe quelle autre */
+    SDL_Rect DstRect;
+    DstRect.x = x;
+    DstRect.y = y;
+    DstRect.w = TextSurface->w;
+    DstRect.h = TextSurface->h;
+
+    /* Affiche toute la surface en 0,0 */
+    //SDL_BlitSurface(TextSurface, NULL, windowSurface, &DstRect);
+
+    SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer, TextSurface);
+    SDL_RendererFlip  flip = SDL_FLIP_NONE;
+    SDL_RenderCopyEx(renderer, tex, NULL, &DstRect, 0, 0, flip);
+
+    /* Libère notre surface et notre police */
+    SDL_FreeSurface(TextSurface);
+
+    TTF_CloseFont(Font);
+
+    /* Fermeture de SDL_ttf */
     TTF_Quit();
-    SDL_FreeSurface(texte);
-    SDL_Quit();
-}*/
+}

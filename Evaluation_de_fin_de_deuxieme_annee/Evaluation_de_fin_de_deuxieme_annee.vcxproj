@@ -73,7 +73,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Ludus_Academie\Année_2\Evaluation_Fin_D_annee\Evaluation_de_fin_de_deuxieme_annee\SDL2\include;C:\Ludus_Academie\Année_2\Evaluation_Fin_D_annee\Evaluation_de_fin_de_deuxieme_annee\SDL2_ttf-2.0.18\include;C:\Ludus_Academie\Année_2\Evaluation_Fin_D_annee\Evaluation_de_fin_de_deuxieme_annee\SDL2_image-2.0.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
