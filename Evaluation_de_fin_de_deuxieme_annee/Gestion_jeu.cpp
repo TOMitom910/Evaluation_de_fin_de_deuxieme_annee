@@ -27,8 +27,3 @@ int taille_echiquier()
 	printf("la taille selectionne est %d\n", taille);
 	return taille;
 }
-
-void timer()
-{
-
-}

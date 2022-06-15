@@ -8,5 +8,3 @@
 #include <time.h>
 
 int taille_echiquier();
-
-void timer();
