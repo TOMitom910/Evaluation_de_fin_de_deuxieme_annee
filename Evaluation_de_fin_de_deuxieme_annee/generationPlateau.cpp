@@ -42,17 +42,8 @@ void ecriture_texte(SDL_Window * window, SDL_Renderer* renderer, int x, int y, c
     SDL_Surface* windowSurface = NULL;
     windowSurface = SDL_GetWindowSurface(window);
 
-
-
     /* Charge une police depuis un fichier, avec une taille de point à 50 */
     TTF_Font* Font = TTF_OpenFont("assets/arial.ttf", 64);
-
-    /* Si la police est nulle, il y a eu une erreur */
-    /*if (!Font)
-    {
-        printf("Erreur de création de la police : %s", TTF_GetError());
-        return 1;
-    }*/
 
     /* Couleur du texte (ici rouge) */
     SDL_Color TextColor;
@@ -63,23 +54,12 @@ void ecriture_texte(SDL_Window * window, SDL_Renderer* renderer, int x, int y, c
     /* On rend un texte sur une surface SDL, en utilisant notre police et notre couleur */
     SDL_Surface* TextSurface = TTF_RenderText_Solid(Font, texte, TextColor);
 
-    /* Si la surface est nulle, il y a eu une erreur */
-  /*if (!TextSurface)
-    {
-        printf("Erreur de rendu du texte : %s", TTF_GetError());
-        return 1;
-    }*/
-
-
     /* On peut maintenant blitter notre surface comme n'importe quelle autre */
     SDL_Rect DstRect;
     DstRect.x = x;
     DstRect.y = y;
     DstRect.w = TextSurface->w;
     DstRect.h = TextSurface->h;
-
-    /* Affiche toute la surface en 0,0 */
-    //SDL_BlitSurface(TextSurface, NULL, windowSurface, &DstRect);
 
     SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer, TextSurface);
     SDL_RendererFlip  flip = SDL_FLIP_NONE;
@@ -88,6 +68,7 @@ void ecriture_texte(SDL_Window * window, SDL_Renderer* renderer, int x, int y, c
     /* Libère notre surface et notre police */
     SDL_FreeSurface(TextSurface);
 
+    // on ferme le font
     TTF_CloseFont(Font);
 
     /* Fermeture de SDL_ttf */

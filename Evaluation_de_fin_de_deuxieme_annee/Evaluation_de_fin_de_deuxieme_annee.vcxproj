@@ -132,9 +132,11 @@
   <ItemGroup>
     <ClCompile Include="Evaluation_de_fin_de_deuxieme_annee.cpp" />
     <ClCompile Include="generationPlateau.cpp" />
+    <ClCompile Include="Gestion_jeu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="generationPlateau.h" />
+    <ClInclude Include="Gestion_jeu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

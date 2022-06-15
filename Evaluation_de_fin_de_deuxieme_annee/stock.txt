@@ -1,0 +1,5 @@
+
+[noir, A, 8][blanc, B, 8][noir, C, 8][blanc, D, 8]
+[blanc, A, 7][noir, B, 7][blanc, C, 7][noir, D, 7]
+[noir, A, 6][blanc, B, 6][noir, C, 6][blanc, D, 6]
+[blanc, A, 5][noir, B, 5][blanc, C, 5][noir, D, 5]
