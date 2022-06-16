@@ -16,7 +16,7 @@ int main(int argc, char* argv[]) {
 
    char taille = taille_echiquier();
    // char* const ptr_taille = &taille;
-    CASE Tab_case[64];
+   CASE Tab_case[64];
 
     const char* tab_char[] = { "A","B","C","D","E","F","G","H","I","J"};
     const char* tab_int[] = { "1","2","3","4","5","6","7","8","9","10"};
@@ -49,6 +49,9 @@ int main(int argc, char* argv[]) {
     int y = 100;
     int lgr_tabcase = 0;
     FILE* fp;
+    fp = fopen("stock.txt", "w");
+    fprintf(fp, "échiquier :\n");
+    fclose(fp);
     fp = fopen("stock.txt", "a");
     for (int i = 0; i < taille; i++)
     {

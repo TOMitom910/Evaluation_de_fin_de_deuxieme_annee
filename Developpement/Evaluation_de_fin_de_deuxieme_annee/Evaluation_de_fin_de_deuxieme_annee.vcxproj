@@ -76,12 +76,12 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Ludus_Academie\Année_2\Evaluation_Fin_D_annee\Evaluation_de_fin_de_deuxieme_annee\SDL2\include;C:\Ludus_Academie\Année_2\Evaluation_Fin_D_annee\Evaluation_de_fin_de_deuxieme_annee\SDL2_ttf-2.0.18\include;C:\Ludus_Academie\Année_2\Evaluation_Fin_D_annee\Evaluation_de_fin_de_deuxieme_annee\SDL2_image-2.0.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Ludus_Academie\Année_2\Evaluation_Fin_D_annee\Evaluation_de_fin_de_deuxieme_annee\Developpement\SDL2\include;C:\Ludus_Academie\Année_2\Evaluation_Fin_D_annee\Evaluation_de_fin_de_deuxieme_annee\Developpement\SDL2_ttf-2.0.18\include;C:\Ludus_Academie\Année_2\Evaluation_Fin_D_annee\Evaluation_de_fin_de_deuxieme_annee\Developpement\SDL2_image-2.0.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Ludus_Academie\Année_2\Evaluation_Fin_D_annee\Evaluation_de_fin_de_deuxieme_annee\SDL2\lib\x86;C:\Ludus_Academie\Année_2\Evaluation_Fin_D_annee\Evaluation_de_fin_de_deuxieme_annee\SDL2_ttf-2.0.18\lib\x86;C:\Ludus_Academie\Année_2\Evaluation_Fin_D_annee\Evaluation_de_fin_de_deuxieme_annee\SDL2_image-2.0.5\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Ludus_Academie\Année_2\Evaluation_Fin_D_annee\Evaluation_de_fin_de_deuxieme_annee\Developpement\SDL2\lib\x86;C:\Ludus_Academie\Année_2\Evaluation_Fin_D_annee\Evaluation_de_fin_de_deuxieme_annee\Developpement\SDL2_ttf-2.0.18\lib\x86;C:\Ludus_Academie\Année_2\Evaluation_Fin_D_annee\Evaluation_de_fin_de_deuxieme_annee\Developpement\SDL2_image-2.0.5\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

@@ -3,14 +3,14 @@
 int taille_echiquier()
 {
 	int taille = 0;
-	printf("Veuillez inserer un chiffre pair de 2 a 10 pour la taille de l'echiquier");
+	printf("Veuillez inserer un chiffre pair de 2 a 8 pour la taille de l'echiquier");
 	scanf("%d", &taille);
 
 	int isnan(taille);
 	//std::cout << isnan(taille) << std::endl;
-	while ((!isnan) || (taille > 10) || (taille < 2) || (taille % 2 )==1)
+	while ((!isnan) || (taille > 8) || (taille < 2) || (taille % 2 )==1)
 	{
-		printf("Veuillez inserer un chiffre pair de 2 a 10 pour la taille de l'echiquier");
+		printf("Veuillez inserer un chiffre pair de 2 a 8 pour la taille de l'echiquier");
 		scanf("%d", &taille);
 	}
 
