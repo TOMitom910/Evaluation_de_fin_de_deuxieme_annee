@@ -1,0 +1,13 @@
+salle 1 : Pion 
+
+salle 2 : Fou
+
+salle 3 : Roi
+
+salle 4 : Tour
+
+salle 5 : cavalier
+
+salle 6 : Reine
+
+salle finale : plateau de jeu 
