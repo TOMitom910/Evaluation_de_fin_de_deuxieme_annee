@@ -1,0 +1,8 @@
+--Classement des jeux par ordre décroissant de nb de parties effectuées et par le genre des joueurs
+
+SELECT Nom_jeu,Score,jeux.ID_Jeux,joueur.ID_Joueur,genre,count(score.ID_Jeux) as nb_partie
+FROM score,joueur,jeux
+WHERE score.ID_Joueur = joueur.ID_Joueur and jeux.ID_Jeux = score.ID_Jeux
+GROUP BY ID_Jeux
+ORDER BY ID_Jeux,genre,nb_partie DESC;
+
